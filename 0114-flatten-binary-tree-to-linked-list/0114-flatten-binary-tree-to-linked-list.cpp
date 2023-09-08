@@ -11,26 +11,20 @@
  */
 class Solution {
 public:
+    TreeNode* rightmost (TreeNode* node) {
+        // helper fn to find the rightmost node in left subtree.
+        while (node->right) node = node->right;
+        return node;
+    }
     void flatten(TreeNode* root) {
-            if (root == NULL || (root->left == NULL && root->right == NULL))
-    {
-        return;
-    }
-    if (root->left != NULL)
-    {
-        flatten(root->left);
-
-        TreeNode *temp = root->right;
-        root->right = root->left;
-        root->left = NULL;
-
-        TreeNode *t = root->right;
-        while (t->right)
-        {
-            t = t->right;
+        while (root) {
+            if (root->left) {
+                TreeNode* node = rightmost(root->left);
+                node->right = root->right;
+                root->right = root->left;
+                root->left = nullptr;
+            }
+            root = root->right;
         }
-        t->right = temp;
-    }
-    flatten(root->right);
     }
 };
