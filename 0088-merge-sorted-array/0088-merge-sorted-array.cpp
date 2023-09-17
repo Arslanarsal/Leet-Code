@@ -22,12 +22,13 @@ public:
             right++;
         }
        
-        int gap1 = (gap / 2) + (gap % 2);
-        if (gap == gap1)
+        
+        if (gap == 1)
         {
             return;
         }
-        gap = gap1;
+        gap = (gap / 2) + (gap % 2);
+    
     }
     }
 };
