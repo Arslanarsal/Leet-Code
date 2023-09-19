@@ -11,11 +11,11 @@ public:
         {
             return mid;
         }
-        if (nums[mid] > target)
+        else if (nums[mid] > target)
         {
             max = mid - 1;
         }
-        if (nums[mid] < target)
+        else if (nums[mid] < target)
         {
             min = mid + 1;
         }
