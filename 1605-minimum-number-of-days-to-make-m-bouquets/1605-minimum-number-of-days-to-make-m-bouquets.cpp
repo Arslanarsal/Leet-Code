@@ -1,14 +1,6 @@
 class Solution {
 public:
-    int highele(vector<int> &bloomDay)
-{
-    int ans = INT_MIN;
-    for (int i = 0; i < bloomDay.size(); i++)
-    {
-        ans = max(ans, bloomDay[i]);
-    }
-    return ans;
-}
+
 
 bool ismakeBouq(vector<int> &bloomDay, int &mid, int &m, int &k)
 {
@@ -41,8 +33,8 @@ bool ismakeBouq(vector<int> &bloomDay, int &mid, int &m, int &k)
 
 int minDays(vector<int> &bloomDay, int &m, int &k)
 {
-    int low = 0;
-    int high = highele(bloomDay);
+    int low = *min_element(bloomDay.begin(), bloomDay.end());
+    int high = *max_element(bloomDay.begin(), bloomDay.end());
     int ans = INT_MAX;
     while (low <= high)
     {
