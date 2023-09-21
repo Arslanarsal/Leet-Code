@@ -14,30 +14,24 @@ bool ismakeBouq(vector<int> &bloomDay, int &mid, int &m, int &k)
 {
     int count = 0, ans = 0;
 
-    for (int i = 0; i < bloomDay.size() - 1; i++)
+    for (int i = 0; i < bloomDay.size() ; i++)
     {
         if (bloomDay[i] <= mid)
         {
             count++;
-        }
-        if (count >= k)
+            if (count >= k)
         {
             ans++;
             count = 0;
         }
-        else if (bloomDay[i + 1] > mid)
+        }
+        
+        else 
         {
             count = 0;
         }
     }
-    if (bloomDay[bloomDay.size() - 1] <= mid)
-    {
-        count++;
-    }
-    if (count >= k)
-    {
-        ans++;
-    }
+
     if (ans >= m)
     {
         return true;
