@@ -10,7 +10,7 @@ public:
     return ans;
 }
 
-bool ismakeBouq(vector<int> &bloomDay, int mid, int m, int k)
+bool ismakeBouq(vector<int> &bloomDay, int &mid, int &m, int &k)
 {
     int count = 0, ans = 0;
 
@@ -45,7 +45,7 @@ bool ismakeBouq(vector<int> &bloomDay, int mid, int m, int k)
     return false;
 }
 
-int minDays(vector<int> &bloomDay, int m, int k)
+int minDays(vector<int> &bloomDay, int &m, int &k)
 {
     int low = 0;
     int high = highele(bloomDay);
