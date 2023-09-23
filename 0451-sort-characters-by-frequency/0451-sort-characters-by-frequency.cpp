@@ -1,28 +1,17 @@
 class Solution {
 public:
     string frequencySort(string s) {
-            string ans = "";
-    map<char, int> mp;
-    int n = s.length();
-    for (int i = 0; i < n; i++)
-    {
-        mp[s[i]]++;
-    }
-    vector<pair<char, int>> vec(mp.begin(), mp.end());
-
-    sort(vec.begin(), vec.end(), [](const auto &a, const auto &b)
-         { return a.second > b.second; });
-
-    for (const auto &pair : vec)
-    {
-        n = pair.second;
-        int j = 0;
-        while (j < n)
-        {
-            ans += pair.first;
-            j++;
+        unordered_map<char,int> freq;           //for frequency of characters
+        priority_queue<pair<int,char>> maxheap; //maxheap according to frequency of characters
+        for(char c: s)
+            freq[c]++;
+        for(auto it: freq)
+            maxheap.push({it.second,it.first}); //heap will be constructed on the basis of frequency
+        s="";   
+        while(!maxheap.empty()){
+            s+=string(maxheap.top().first,maxheap.top().second); //frequency times the character
+            maxheap.pop();
         }
-    }
-    return ans;
+        return s;
     }
 };
