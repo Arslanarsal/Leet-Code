@@ -20,10 +20,6 @@ int countGoodNumbers(long long n)
 
    long  even = (n + 1) / 2;
    long  odd = n / 2;
-
-    long long first = (powe(5, even));
-    long long second = (powe(4, odd));
-
-    return (int)((first * second) % mod);
+    return ((powe(5, even) * powe(4, odd)) % mod);
 }
 };
