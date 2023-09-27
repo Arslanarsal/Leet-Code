@@ -18,8 +18,8 @@ long long mod = 1e9 + 7;
 int countGoodNumbers(long long n)
 {
 
-    long long  even = (n + 1) / 2;
-    long long  odd = n / 2;
+   long  even = (n + 1) / 2;
+   long  odd = n / 2;
 
     long long first = (powe(5, even));
     long long second = (powe(4, odd));
