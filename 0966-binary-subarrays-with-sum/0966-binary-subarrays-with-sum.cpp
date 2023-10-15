@@ -1,24 +1,36 @@
 class Solution {
 public:
-    int numSubarraysWithSum(vector<int>& nums, int goal) {
-        unordered_map<int, int> mp;
-    int count = 0;
-    int sum = 0;
-    for (int i = 0; i < nums.size(); i++)
+    int numSubarraysWithSum(vector<int>& arr, int &k) {
+            // To store the result.
+    int res = 0;
+
+    // To store count of '1s'.
+    int cnt = 0;
+
+    // To store prefix sum.
+    vector<int> prefix(arr.size() + 1, 0);
+
+    // Initialize index having zero sum as 1.
+    prefix[0] = 1;
+
+    for (int i = 0; i < arr.size(); i++)
     {
-        sum += nums[i];
 
-        if (sum == goal)
+        // Update count.
+        cnt += arr[i];
+
+        // Check condition.
+        if (cnt >= k)
         {
-            count++;
-        }
-        if (mp.find(sum - goal) != mp.end())
-        {
-            count += mp[sum - goal];
+
+            // Update result.
+            res += prefix[cnt - k];
         }
 
-        mp[sum]++;
+        // Update prefix array.
+        prefix[cnt]++;
     }
-    return count;
+
+    return res;
     }
 };
